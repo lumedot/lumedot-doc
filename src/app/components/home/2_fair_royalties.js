@@ -2,7 +2,7 @@
 
 export default function FairRoyalties() {
   return (
-    <section className="py-4 mt-8 mb-8">
+    <section className="py-4 mt-16 mb-16">
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div className="flex-shrink-0 w-full md:w-[350px] lg:w-[450px] -mt-8">
