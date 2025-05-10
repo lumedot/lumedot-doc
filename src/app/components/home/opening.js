@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Particle from "../styles/animations/particle";
 
 export default function Opening() {
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      setIsScrolled(offset > document.documentElement.clientHeight / 2);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section className="relative text-center py-12 -mt-4 sm:mt-4 sm:mt-12">
@@ -46,26 +53,50 @@ export default function Opening() {
 
         {/* Buttons */}
         <div className="flex flex-col px-4 sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-          <a
-            href="https://lumedot.com/dot"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative text-sm font-medium text-white px-6 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-pink-400 hover:to-purple-700 hover:border-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300"
-          >
-            Publish your story
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 ml-1">
-              →
-            </span>
-          </a>
+            <a
+              href="https://lumedot.com/dot" // TODO: update link to signup page
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative text-sm font-medium text-white px-6 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-pink-400 hover:to-purple-700 hover:border-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300"
+            >
+              Publish your story
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 ml-1">
+                →
+              </span>
+            </a>
 
-          <button
-            onClick={openModal}
-            className="text-sm font-medium text-white px-6 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 hover:border-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300"
-          >
-            Email Support
-          </button>
-          {/* TODO: email link */}
+            <button
+              onClick={() => window.location.href = 'mailto:support@lumedot.com'} // TODO: update email address
+              className="text-sm font-medium text-white px-6 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 hover:border-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300"
+            >
+              Email Support
+            </button>
+        </div>
 
+        {/* Floating buttons */}
+        <div className={`
+          fixed left-1/2 transform -translate-x-1/2 z-50 px-4 py-2 transition-transform duration-800 ease-in-out
+          ${isScrolled ? 'top-8 translate-y-0' : '-top-20 -translate-y-full'}
+        `}>
+          <div className="flex flex-col px-4 sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <a
+              href="https://lumedot.com/dot" // TODO: update link to signup page
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative text-sm font-medium text-white px-6 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-pink-400 hover:to-purple-700 hover:border-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300">
+              Publish your story
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 ml-1">
+                →
+              </span>
+            </a>
+
+            <button
+              onClick={() => window.location.href = 'mailto:support@lumedot.com'} // TODO: update email address
+              className="text-sm font-medium text-white px-6 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 hover:border-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300"
+            >
+              Email Support
+            </button>
+          </div>
         </div>
       </div>
     </section>

@@ -33,7 +33,7 @@ export default function Closing() {
         {/* Subtitle */}
         <h2 className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed">
           Write it. Shape it. Share it. In every form.
-        </h2> {/* TODO: animate-lumedot */}
+        </h2> 
 
         {/* Logo */}
         <div className="flex justify-center -mb-4 md:-mb-4">
