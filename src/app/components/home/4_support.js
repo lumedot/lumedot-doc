@@ -4,7 +4,15 @@ export default function Support() {
   return (
     <section className="py-4 mt-16 mb-16">
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
-        <div className="flex md:justify-end">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div className="flex-shrink-0 w-full md:w-[300px] lg:w-[400px] -mt-8">
+              <img
+                src="/img/4.png"
+                alt="Support Illustration"
+                className="w-full object-cover"
+              />
+          </div>
+                    
           <div className="max-w-prose text-left">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-6">
               4. <span className="animate-lumedot">Support for Creators</span>

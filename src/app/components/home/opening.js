@@ -10,7 +10,7 @@ export default function Opening() {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <section className="relative text-center py-12 -mt-4 sm:-mt-0 sm:mt-12">
+    <section className="relative text-center py-12 -mt-4 sm:mt-4 sm:mt-12">
       {/* Particle Background */}
       <Particle />
 
@@ -52,7 +52,7 @@ export default function Opening() {
             rel="noopener noreferrer"
             className="relative text-sm font-medium text-white px-6 py-2 rounded-full border border-white/20 bg-white/10 hover:bg-gradient-to-r hover:from-pink-400 hover:to-purple-700 hover:border-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300"
           >
-            Start Publishing
+            Publish your story
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 ml-1">
               →
             </span>

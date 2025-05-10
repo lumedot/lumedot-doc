@@ -4,7 +4,7 @@ export default function MultiFormat() {
   return (
     <section className="py-4 mt-16 mb-16">
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
-        <div className="flex md:justify-start">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div className="max-w-prose text-left">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-6">
               5. <span className="animate-lumedot">Community</span>
@@ -29,6 +29,14 @@ export default function MultiFormat() {
               <br></br>
               Comments & Reactions • Book Clubs • Creator-Led Communities
             </p>
+          </div>
+
+          <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[500px] -mt-20">
+            <img
+              src="/img/5.png"
+              alt="Community Illustration"
+              className="w-full object-cover"
+            />
           </div>
         </div>
       </div>
