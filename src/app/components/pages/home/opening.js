@@ -16,11 +16,6 @@ export default function Opening() {
     <section className="relative isolate flex flex-col items-center justify-center min-h-screen overflow-hidden px-4 text-center">
       <Particle />
 
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/5 before:via-white/0 before:to-white/5"
-      />
-
       <a
         href="https://opus.lumedot.com"
         target="_blank"

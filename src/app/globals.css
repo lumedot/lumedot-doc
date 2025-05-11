@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import './components/css/badge.css';
 @import './components/css/button.css';
+@import './components/css/decor/blob.css';
 
 :root {
   --background: #ffffff;

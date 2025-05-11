@@ -10,17 +10,26 @@ import BaseFooter from "./components/layout/footer-base";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen mx-auto max-w-6xl">
-      <BaseHeader />
-      <Opening />
-      <div id="discover-more" />
-      <Freedom />
-      <FairRoyalties />
-      <MultiFormat />
-      <Support />
-      <Community />
-      <Closing />
-      <BaseFooter />
+    <div className="min-h-screen w-full relative">
+      <div className="notebook-lumedot-blob-container pointer-events-none">
+        <div className="notebook-lumedot-blob" />
+        <div className="notebook-lumedot-blob notebook-lumedot-blob-2" />
+        <div className="notebook-lumedot-blob notebook-lumedot-blob-3" />
+        <div className="notebook-lumedot-blob notebook-lumedot-blob-4" />
+      </div>
+
+      <div className="flex flex-col min-h-screen mx-auto max-w-6xl relative z-10">
+        <BaseHeader />
+        <Opening />
+        <div id="discover-more" />
+        <Freedom />
+        <FairRoyalties />
+        <MultiFormat />
+        <Support />
+        <Community />
+        <Closing />
+        <BaseFooter />
+      </div>
     </div>
   );
 }
