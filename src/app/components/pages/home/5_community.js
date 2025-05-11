@@ -15,7 +15,7 @@ export default function MultiFormat() {
               style={{
                 backgroundImage: 'linear-gradient(45deg, #ffffff, #e0e0e0)',
                 WebkitBackgroundClip: 'text',
-                color: 'transparent',
+                opacity: 0.9,
                 textShadow: '0 0 12px rgba(255, 255, 255, 0.3)',
               }}
             >
