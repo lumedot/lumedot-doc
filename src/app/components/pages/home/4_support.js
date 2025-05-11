@@ -7,7 +7,7 @@ export default function Support() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div className="flex-shrink-0 w-full md:w-[300px] lg:w-[400px] -mt-8">
               <img
-                src="/img/4.png"
+                src="/page-media/welcome/4.png"
                 alt="Support Illustration"
                 className="w-full object-cover"
               />

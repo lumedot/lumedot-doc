@@ -33,7 +33,7 @@ export default function MultiFormat() {
 
           <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[500px] -mt-20">
             <img
-              src="/img/5.png"
+              src="/page-media/welcome/5.png"
               alt="Community Illustration"
               className="w-full object-cover"
             />

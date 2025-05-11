@@ -1,28 +1,30 @@
-import { Inter } from 'next/font/google';
-import "./globals.css";
-import Head from 'next/head';
+import './globals.css'
+import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'lumedot-doc',
-};
+  title: "notebook • lumedot",
+  description: "Build logs, experiments, and quiet documentation from the edge of publishing with Solana",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+      <head>
+        <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        {/*TODO: new icon*/}
-        {/* <link rel="icon" href="/favicon.ico" /> */}
-        {/* <link rel="apple-touch-icon" href="/favicon.ico" /> */}
-        {/* <link rel="icon" type="image/png" href="/favicon.png" /> */}
-      </Head>
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className}>
         {children}
       </body>
     </html>
-  );
+  )
 }

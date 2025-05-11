@@ -33,7 +33,7 @@ export default function Freedom() {
 
           <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[500px] -mt-12">
             <img
-              src="/img/1.png"
+              src="/page-media/welcome/1.png"
               alt="Ownership Illustration"
               className="w-full object-cover"
             />

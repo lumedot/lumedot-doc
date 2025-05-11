@@ -1,14 +1,17 @@
-import Freedom from "./components/home/1_freedom";
-import FairRoyalties from "./components/home/2_fair_royalties";
-import MultiFormat from "./components/home/3_multi_format";
-import Support from "./components/home/4_support";
-import Community from "./components/home/5_community";
-import Opening from "./components/home/opening";
-import Closing from "./components/home/closing";
+import BaseHeader from "./components/layout/header-base";
+import Freedom from "./components/pages/home/1_freedom";
+import FairRoyalties from "./components/pages/home/2_fair_royalties";
+import MultiFormat from "./components/pages/home/3_multi_format";
+import Support from "./components/pages/home/4_support";
+import Community from "./components/pages/home/5_community";
+import Opening from "./components/pages/home/opening";
+import Closing from "./components/pages/home/closing";
+import BaseFooter from "./components/layout/footer-base";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen mx-auto max-w-6xl">
+      <BaseHeader />
       <Opening />
       <Freedom />
       <FairRoyalties />
@@ -16,6 +19,7 @@ export default function Home() {
       <Support />
       <Community />
       <Closing />
+      <BaseFooter />
     </div>
   );
 }

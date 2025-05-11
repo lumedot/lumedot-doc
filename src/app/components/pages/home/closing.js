@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import Particle from "../styles/animations/particle";
+import Particle from "@/app/components/styles/animations/particle";
 
 export default function Closing() {
   const [isModalOpen, setModalOpen] = useState(false);

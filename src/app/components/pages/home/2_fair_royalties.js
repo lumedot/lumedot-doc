@@ -1,13 +1,21 @@
 "use client";
 
-export default function MultiFormat() {
+export default function FairRoyalties() {
   return (
     <section className="py-4 mt-16 mb-16">
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div className="flex-shrink-0 w-full md:w-[350px] lg:w-[450px] -mt-8">
+              <img
+                src="/page-media/welcome/2.png"
+                alt="Fair Royalties Illustration"
+                className="w-full object-cover"
+              />
+          </div>
+
           <div className="max-w-prose text-left">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-6">
-              3. <span className="animate-lumedot">Multi-Format Publishing</span>
+              2. <span className="animate-lumedot">Fair Royalties</span>
             </h2>
 
             <p 
@@ -19,24 +27,16 @@ export default function MultiFormat() {
                 textShadow: '0 0 12px rgba(255, 255, 255, 0.3)',
               }}
             >
-              Read it. Listen to it. Interact with it.
+              Fair rewards for your honest work.
             </p>
               
             <p className="text-base md:text-lg leading-relaxed mb-6">
-              Your work isn’t limited to texts.
+              Your creativity and hard work come first — not our cut.
               <br></br>
-              Beyond pages. Beyond sound. Beyond limits.
+              Earn what you truly deserve.
               <br></br>
-              Text • Audiobook • Slidebook • Interactive • VR
+              Transparent, real-time dashboard. Up to 80% in royalties.
             </p>
-          </div>
-
-          <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[500px] -mt-24">
-            <img
-              src="/img/3.png"
-              alt="Multi-formatting Illustration"
-              className="w-full object-cover"
-            />
           </div>
         </div>
       </div>

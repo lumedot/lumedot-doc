@@ -1,71 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import './components/css/badge.css';
+@import './components/css/button.css';
 
 :root {
-  --foreground-color: #FFFFFF;
-  --background-stat-color: #f0f0f0;
-  --background-end-color: #5e2579;
-  --gradient-color-1: #400964;
-  --gradient-color-2: #284e74;
-  --gradient-color-3: #0C0F29;
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-color: #FFFFFF;
-    --background-stat-color: #2e3234;
-    --background-end-color: #5e2579;
-    --gradient-color-1: #400964;
-    --gradient-color-2: #284e74;
-    --gradient-color-3: #0C0F29;
+    --background: #000000;
+    --foreground: #ededed;
   }
-}
-
-html {
-  background: var(--background-stat-color);
 }
 
 body {
-  position: relative;
-  background: transparent;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  color: var(--foreground-color);
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1;
-  
-  background: linear-gradient(135deg, var(--gradient-color-1), var(--gradient-color-2), var(--gradient-color-3), var(--background-end-color));
-  background-size: 200% 200%;
-  animation: gradientShift 30s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
+  color: var(--foreground);
+  background: var(--background);
 }
 
 @layer utilities {

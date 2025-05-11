@@ -1,0 +1,70 @@
+:root {
+    --lumedot-svg-brand:   #000000;
+    --lumedot-logo-url: url('/img/lumedot/logo/lumedot-logo-black.png');
+    --lumedot-icon-url: url('/img/lumedot/icon/lumedot-icon-black.png');
+    --x-icon-url: url('/img/social/icon/x-icon-black.png');
+    --linkedin-icon-url: url('/img/social/icon/linkedin-icon-black.png');
+    --telegram-icon-url: url('/img/social/icon/telegram-icon-black.png');
+    --solana-icon-url: url('/img/solana/solana-icon-colored.png');
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --lumedot-svg-brand:   #ffffff;
+      --lumedot-logo-url: url('/img/lumedot/logo/lumedot-logo-white.png');
+      --lumedot-icon-url: url('/img/lumedot/icon/lumedot-icon-white.png');
+      --x-icon-url: url('/img/social/icon/x-icon-white.png');
+      --linkedin-icon-url: url('/img/social/icon/linkedin-icon-white.png');
+      --telegram-icon-url: url('/img/social/icon/telegram-icon-white.png');
+      --solana-icon-url: url('/img/solana/solana-icon-colored.png');
+    }
+  }
+
+  .lumedot-svg-brand {
+    color: var(--lumedot-svg-brand);
+  }
+  .lumedot-svg svg * {
+    fill: currentColor;
+    width: 100%;
+    height: 100%;
+  }
+
+  .lumedot-logo {
+    background-image: var(--lumedot-logo-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 50px;
+  }
+  
+  .lumedot-icon {
+    background-image: var(--lumedot-icon-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .x-icon, .linkedin-icon, .telegram-icon, .solana-icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .x-icon {
+    background-image: var(--x-icon-url);
+  }
+  
+  .linkedin-icon {
+    background-image: var(--linkedin-icon-url);
+  }
+  
+  .telegram-icon {
+    background-image: var(--telegram-icon-url);
+  }
+
+  .solana-icon {
+    background-image: var(--solana-icon-url);
+  }
+  
