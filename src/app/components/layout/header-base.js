@@ -76,9 +76,9 @@ export default function HeaderBase() {
               target="_blank"
               rel="noopener noreferrer"
               data-cta="upload"
-              className="relative z-10 inline-flex items-center rounded-full border border-current/50 bg-current/5 px-4 py-2 text-xs font-medium uppercase tracking-wide backdrop-blur-sm shadow-sm transition-all hover:scale-105 hover:bg-fuchsia-600/50"
+              className="relative text-center z-10 inline-flex items-center rounded-full border border-current/50 bg-current/5 px-4 py-2 text-xs font-medium uppercase tracking-wide backdrop-blur-sm shadow-sm transition-all hover:scale-105 hover:bg-fuchsia-600/50"
             >
-              Upload your first book →
+              Publish your book →
             </a>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function HeaderBase() {
             href="https://lumedot.com/dot"
             target="_blank"
             rel="noopener noreferrer"
-            className="button inline-flex px-2 py-2"
+            className="button px-2 py-2"
           >
             →
           </a>

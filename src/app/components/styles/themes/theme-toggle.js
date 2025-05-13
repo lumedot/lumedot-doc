@@ -38,7 +38,7 @@ function ThemeOption({ className, currentTheme, toggleTheme }) {
         ${className}
       `}
     >
-        <button className="cursor-pointer">
+        <button className="cursor-pointer mt-1.5">
           {currentTheme === "custom-dark" || currentTheme === "(prefers-color-scheme: dark)" ? (
             <SunSvg />
           ) : (
