@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function MultiFormat() {
   return (
     <section className="py-4 mt-16 mb-16">
@@ -31,11 +33,14 @@ export default function MultiFormat() {
             </p>
           </div>
 
-          <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[500px] -mt-20">
-            <img
+          <div className="flex-shrink-0 mb-8 w-full md:w-[400px] lg:w-[500px] -mt-12 relative h-[250px] md:h-[300px] lg:h-[350px]">
+            <Image
               src="/page-media/welcome/5.png"
               alt="Community Illustration"
-              className="w-full object-cover"
+              width={500} 
+              height={500} 
+              className="object-contain"
+              priority
             />
           </div>
         </div>

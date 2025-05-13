@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function MultiFormat() {
   return (
     <section className="py-4 mt-16 mb-16">
@@ -24,18 +26,21 @@ export default function MultiFormat() {
               
             <p className="text-base md:text-lg leading-relaxed mb-6">
               Your work isn’t limited to texts.
-              <br></br>
+              <br />
               Beyond pages. Beyond sound. Beyond limits.
-              <br></br>
+              <br />
               Text • Audiobook • Slidebook • Interactive • VR
             </p>
           </div>
 
-          <div className="flex-shrink-0 w-full md:w-[400px] lg:w-[500px] -mt-24">
-            <img
+          <div className="flex-shrink-0 mb-8 w-full md:w-[400px] lg:w-[500px] -mt-12 relative h-[250px] md:h-[300px] lg:h-[350px]">
+            <Image
               src="/page-media/welcome/3.png"
               alt="Multi-formatting Illustration"
-              className="w-full object-cover"
+              width={500} 
+              height={500} 
+              className="object-contain"
+              priority
             />
           </div>
         </div>
