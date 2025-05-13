@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,15 +13,47 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const cookieStore = await cookies();
+  const themeCookie = cookieStore.get("theme")?.value || "system";
+
+  let dataTheme = "";
+  let htmlClass = "";
+
+  switch (themeCookie) {
+    case "custom-light":
+      dataTheme = "custom-light";
+      break;
+    case "custom-dark":
+      dataTheme = "custom-dark";
+      break;
+  }
+
+  const scriptForSystem = `
+    (function() {
+      var savedTheme = '${themeCookie}';
+      if (savedTheme === 'system') {
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var meta = document.querySelector('meta[name="data-theme"]');
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.setAttribute('name', 'data-theme');
+          document.head.appendChild(meta);
+        }
+        dataTheme = prefersDark ? 'custom-dark' : 'custom-light';
+      }
+    })();
+  `;
+
   return (
-    <html lang="en">
+    <html lang="en" className={htmlClass} {...(dataTheme ? { "data-theme": dataTheme } : {})}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={{ __html: scriptForSystem }} />
       </head>
       <body className={inter.className}>
         {children}

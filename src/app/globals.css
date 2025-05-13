@@ -15,6 +15,16 @@
   }
 }
 
+[data-theme="custom-light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+[data-theme="custom-dark"] {
+  --background: #000000;
+  --foreground: #ededed;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

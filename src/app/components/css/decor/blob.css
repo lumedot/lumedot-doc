@@ -26,6 +26,36 @@
   }
 }
 
+/* Light Theme */
+[data-theme="custom-light"] {
+  --nb-bg-base: #f8f9fa;
+  --nb-bg-semi: rgba(248, 249, 250, 0.8);
+  --nb-bg-transparent: rgba(248, 249, 250, 0);
+  --nb-grad-start: #3db9b0;
+  --nb-grad-end: #7c3aed;
+  --nb-blob-1: rgba(61, 185, 176, 0.25);
+  --nb-blob-2: rgba(124, 58, 237, 0.25);
+  --nb-blob-3: rgba(124, 58, 237, 0.20);
+  --nb-blob-4: rgba(61, 185, 176, 0.20);
+  --nb-blob-opacity: 0.75;
+  --nb-blob-blur: 20px;
+}
+
+/* Dark Theme */
+[data-theme="custom-dark"] {
+  --nb-bg-base: #050510;
+  --nb-bg-semi: rgba(5, 5, 16, 0.8);
+  --nb-bg-transparent: rgba(5, 5, 16, 0);
+  --nb-grad-start: #3db9b0;
+  --nb-grad-end: #7c3aed;
+  --nb-blob-1: rgba(49, 185, 176, 0.2);
+  --nb-blob-2: rgba(124, 58, 237, 0.20);
+  --nb-blob-3: rgba(124, 58, 237, 0.15);
+  --nb-blob-4: rgba(61, 185, 176, 0.15);
+  --nb-blob-opacity: 0.60;
+  --nb-blob-blur: 30px;
+}
+
 .notebook-lumedot-container {
   position: relative;
   min-height: 100%;
