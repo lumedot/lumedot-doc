@@ -29,6 +29,7 @@ export default function Closing() {
           href="https://opus.lumedot.com"
           target="_blank"
           rel="noopener noreferrer"
+          data-cta="upload"
           className="
             inline-flex items-center justify-center
             rounded-full border border-current/50 bg-current/5
