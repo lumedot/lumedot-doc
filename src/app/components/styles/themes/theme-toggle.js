@@ -9,10 +9,10 @@ export default function SettingsAppearanceTheme() {
   const { manageTheme, currentTheme } = ThemeManager();
 
   const toggleTheme = (themeKey) => {
-    console.log("Theme change toggled with:", themeKey);
-    const newTheme = themeKey === "custom-dark" || themeKey === "(prefers-color-scheme: dark)" ? "custom-light" : "custom-dark";
+    const newTheme = themeKey === "custom-dark"? "custom-light" : "custom-dark";
     manageTheme(newTheme);
     console.log("Changed theme:", newTheme);
+    console.log(document.documentElement.classList);
   };
 
   return (
@@ -39,7 +39,7 @@ function ThemeOption({ className, currentTheme, toggleTheme }) {
       `}
     >
         <button className="cursor-pointer mt-1.5">
-          {currentTheme === "custom-dark" || currentTheme === "(prefers-color-scheme: dark)" ? (
+          {currentTheme === "custom-dark" ? (
             <SunSvg />
           ) : (
             <MoonSvg />
