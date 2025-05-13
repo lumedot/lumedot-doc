@@ -2,7 +2,7 @@ import Particle from "@/app/components/styles/animations/particle-themed";
 
 export default function Closing() {
   return (
-    <section className="relative text-center py-24 -mt-4 sm:mt-12">
+    <section className="relative text-center py-24 mt-8 sm:mt-12">
       <Particle />
 
       <div className="max-w-4xl mx-auto px-4 relative z-10">
