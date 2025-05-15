@@ -13,17 +13,10 @@ export default function ThemeManager() {
   }
 
   function applyTheme(theme) {
-    if (theme === "custom-light") {
-      document.documentElement.setAttribute("data-theme", "custom-light");
-      document.documentElement.classList.remove("dark");
-    } else if (theme === "custom-dark") {
-      document.documentElement.setAttribute("data-theme", "custom-dark");
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
-    } else {
-      // system or no preference
-      document.documentElement.removeAttribute("data-theme");
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.classList.toggle("dark", systemPrefersDark);
+    } else if (theme === "light") {
+      document.documentElement.classList.remove("dark");
     }
   }
 
@@ -34,29 +27,15 @@ export default function ThemeManager() {
     setCurrentTheme(theme);
   }
 
-  // If system changes and user has "system" theme
-  function handleSystemThemeChange() {
-    const savedTheme = getThemeCookie();
-    if (!savedTheme || savedTheme === "system") {
-      applyTheme("system");
-      setCurrentTheme("system");
-    }
-  }
-
-  const [currentTheme, setCurrentTheme] = useState("system");
+  const [currentTheme, setCurrentTheme] = useState("");
 
   useEffect(() => {
-    // On mount, apply cookie-based theme or default to system
-    const savedTheme = getThemeCookie() || "system";
+    // On mount, apply cookie-based theme or system theme    
+    const savedTheme = getThemeCookie() === "dark" ? "dark" : "";
     applyTheme(savedTheme);
     setCurrentTheme(savedTheme);
 
-    // Monitor system changes
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", handleSystemThemeChange);
-
     return () => {
-      mediaQuery.removeEventListener("change", handleSystemThemeChange);
     };
   }, []);
 

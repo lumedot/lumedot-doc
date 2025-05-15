@@ -2,26 +2,21 @@
 @import './components/css/badge.css';
 @import './components/css/button.css';
 @import './components/css/decor/blob.css';
-@custom-variant dark (&:where([data-theme=custom-dark], [data-theme=custom-dark] *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;
     --foreground: #ededed;
   }
-}
+} */
 
-[data-theme="custom-light"] {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-[data-theme="custom-dark"] {
+[class~="dark"] {
   --background: #000000;
   --foreground: #ededed;
 }

@@ -15,38 +15,27 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
-  const themeCookie = cookieStore.get("theme")?.value || "system";
+  const themeCookie = cookieStore.get("theme")?.value;
+  console.log("Theme cookie value:", themeCookie);
 
-  let dataTheme = "";
   let htmlClass = "";
 
-  switch (themeCookie) {
-    case "custom-light":
-      dataTheme = "custom-light";
-      break;
-    case "custom-dark":
-      dataTheme = "custom-dark";
-      break;
-  }
+  htmlClass = themeCookie === "dark" ? "dark" : "";
 
   const scriptForSystem = `
-    (function() {
-      var savedTheme = '${themeCookie}';
-      if (savedTheme === 'system') {
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var meta = document.querySelector('meta[name="data-theme"]');
-        if (!meta) {
-          meta = document.createElement('meta');
-          meta.setAttribute('name', 'data-theme');
-          document.head.appendChild(meta);
-        }
-        dataTheme = prefersDark ? 'custom-dark' : 'custom-light';
+    (function () {
+      var hasThemeCookie = '${themeCookie}' !== "";
+      console.log("Theme cookie found:", hasThemeCookie, "Value:", '${themeCookie}');
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (!hasThemeCookie && prefersDark) {
+        document.documentElement.classList.add("dark");
+        console.log("System theme applied: dark");
       }
     })();
   `;
 
   return (
-    <html lang="en" className={htmlClass} {...(dataTheme ? { "data-theme": dataTheme } : {})}>
+    <html lang="en" className={htmlClass}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
