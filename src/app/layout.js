@@ -15,28 +15,51 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
-  const themeCookie = cookieStore.get("theme")?.value;
-  console.log("Theme cookie value:", themeCookie);
+  const themeCookie = cookieStore.get("theme")?.value || "system";
 
+  let dataTheme = "";
   let htmlClass = "";
+  let metaThemeColor = null;
 
-  htmlClass = themeCookie === "dark" ? "dark" : "";
+  switch (themeCookie) {
+    case "custom-light":
+      dataTheme = "custom-light";
+      metaThemeColor = "#ffffff";
+      break;
+    case "custom-dark":
+      dataTheme = "custom-dark";
+      metaThemeColor = "#000000";
+      break;
+    case "custom-starlight":
+      dataTheme = "custom-starlight";
+      metaThemeColor = "#1d2b4f";
+      break;
+  }
 
   const scriptForSystem = `
-    (function () {
-      var hasThemeCookie = '${themeCookie}' !== "";
-      console.log("Theme cookie found:", hasThemeCookie, "Value:", '${themeCookie}');
-      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (!hasThemeCookie && prefersDark) {
-        document.documentElement.classList.add("dark");
-        console.log("System theme applied: dark");
+    (function() {
+      var savedTheme = '${themeCookie}';
+      if (savedTheme === 'system') {
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.setAttribute('name', 'theme-color');
+          document.head.appendChild(meta);
+        }
+        meta.setAttribute('content', prefersDark ? '#000000' : '#ffffff');
       }
     })();
   `;
 
   return (
-    <html lang="en" className={htmlClass}>
+    <html
+      lang="en"
+      className={htmlClass}
+      {...(dataTheme ? { "data-theme": dataTheme } : {})}
+    >
       <head>
+        {metaThemeColor && <meta name="theme-color" content={metaThemeColor} />}
         <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -48,5 +71,5 @@ export default async function RootLayout({ children }) {
         {children}
       </body>
     </html>
-  )
+  );
 }
