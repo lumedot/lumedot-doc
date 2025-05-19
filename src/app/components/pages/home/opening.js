@@ -14,7 +14,7 @@ export default function Opening() {
   }, []);
 
   return (
-    <section className="relative isolate flex flex-col items-center justify-center min-h-screen overflow-hidden px-4 text-center -mt-4">
+    <section className="relative isolate flex flex-col items-center justify-center min-h-screen overflow-hidden px-4 text-center -mt-2">
       <Particle />
 
       <a

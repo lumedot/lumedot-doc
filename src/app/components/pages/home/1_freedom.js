@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export default function Freedom() {
   return (
-    <section className="py-4 mt-16 mb-16">      
+    <section className="py-4 px-5 mt-12 mb-16">      
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div className="max-w-prose text-left">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-4">
               1. <span className="animate-lumedot">Ownership</span>
             </h2>
 
             <p 
-              className="text-base font-bold md:text-lg leading-relaxed mb-6"
+              className="text-lg font-bold md:text-xl leading-relaxed mb-4"
               style={{
                 backgroundImage: 'linear-gradient(45deg, #ffffff, #e0e0e0)',
                 WebkitBackgroundClip: 'text',
@@ -21,19 +21,19 @@ export default function Freedom() {
                 textShadow: '0 0 12px rgba(255, 255, 255, 0.3)',
               }}
             >
-              Your story, your rules.
+              Your work stays yours. Always.
             </p>
               
-            <p className="text-base md:text-lg leading-relaxed mb-6">
-              Maintain complete control of your rights.
+            <p className="text-base md:text-lg font-medium leading-relaxed mb-6">
+              • No exclusivity, no fine print.
               <br />
-              Your work is 100% yours.
+              • We give you tools, not terms.
               <br />
-              You decide how, when, and where it lives.
+              • You decide how your book is published, priced, and promoted.
             </p>
           </div>
 
-          <div className="flex-shrink-0 mb-8 w-full md:w-[400px] lg:w-[500px] -mt-12 relative h-[250px] md:h-[300px] lg:h-[350px]">
+          <div className="flex-shrink-0 mt-4 w-full md:w-[400px] lg:w-[450px] -mt-12 relative h-[250px] md:h-[300px] lg:h-[350px]">
             <Image
               src="/page-media/welcome/1.png"
               alt="Ownership Illustration"

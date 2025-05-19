@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Support() {
   return (
-    <section className="py-4 mt-16 mb-16">
+    <section className="py-4 px-5 mt-18 mb-16">
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
         <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8">
           <div className="flex-shrink-0 mb-8 w-full md:w-[450px] lg:w-[400px] -mt-12 relative h-[30vh] md:h-[40vh] lg:h-[50vh]">
@@ -19,12 +19,12 @@ export default function Support() {
           </div>
                     
           <div className="max-w-prose text-left">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-6">
-              4. <span className="animate-lumedot">Support for Creators</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-4">
+              4. <span className="animate-lumedot">Writer Support</span>
             </h2>
 
             <p 
-              className="text-base font-bold md:text-lg leading-relaxed mb-6"
+              className="text-lg font-bold md:text-xl leading-relaxed mb-4"
               style={{
                 backgroundImage: 'linear-gradient(45deg, #ffffff, #e0e0e0)',
                 WebkitBackgroundClip: 'text',
@@ -32,15 +32,13 @@ export default function Support() {
                 textShadow: '0 0 12px rgba(255, 255, 255, 0.3)',
               }}
             >
-              We support creators, not just content.
+              Help you finish strong.
             </p>
               
             <p className="text-base md:text-lg leading-relaxed mb-6">
-              Whenever you need a production team, we’ve got your back.
+              • From manuscript to a fully published, pro-quality book-free EPUB conversion, audio post, and format design.
               <br></br>
-              You write — we help you bring it to life.
-              <br></br>
-              Free 1-day EPUB conversion • Audio Post Production • Custom Designs
+              • No fees. No agencies. Just help from people who've done it before.
             </p>
           </div>
         </div>

@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export default function MultiFormat() {
   return (
-    <section className="py-4 mt-16 mb-16">
+    <section className="py-4 px-5 mt-16 mb-16">
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div className="max-w-prose text-left">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-4">
               5. <span className="animate-lumedot">Community</span>
             </h2>
 
             <p 
-              className="text-base font-bold md:text-lg leading-relaxed mb-6"
+              className="text-lg font-bold md:text-xl leading-relaxed mb-4"
               style={{
                 backgroundImage: 'linear-gradient(45deg, #ffffff, #e0e0e0)',
                 WebkitBackgroundClip: 'text',
@@ -21,15 +21,17 @@ export default function MultiFormat() {
                 textShadow: '0 0 12px rgba(255, 255, 255, 0.3)',
               }}
             >
-              Every book is a story waiting to be shared.
+              You're not just uploading a book.
+              <br></br>
+              You're building a world around it.
             </p>
               
             <p className="text-base md:text-lg leading-relaxed mb-6">
-              A vibrant ecosystem where readers engage, interact, and connect.
+              • Start a club. Post updates. Talk to readers.
               <br></br>
-              Living shelves built together by authors and readers.
+              • You decide how close or far you want to be from the people holding your story and idea.
               <br></br>
-              Comments & Reactions • Book Clubs • Creator-Led Communities
+              • When the right reader finds the right book, everything changes. We want that to happen more often.
             </p>
           </div>
 

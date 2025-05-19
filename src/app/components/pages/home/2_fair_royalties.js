@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export default function FairRoyalties() {
   return (
-    <section className="py-4 mt-16 mb-16">
+    <section className="py-4 px-5 mt-16 mb-16">
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
         <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8">
-          <div className="flex-shrink-0 mb-8 w-full md:w-[450px] lg:w-[400px] -mt-12 relative h-[30vh] md:h-[40vh] lg:h-[50vh]">
+          <div className="flex-shrink-0 mb-8 w-full md:w-[350px] lg:w-[400px] -mt-12 relative h-[30vh] md:h-[40vh] lg:h-[50vh]">
             <Image
               src="/page-media/welcome/2.png"
               alt="Fair Royalties Illustration"
@@ -19,12 +19,12 @@ export default function FairRoyalties() {
           </div>
 
           <div className="max-w-prose text-left">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-4">
               2. <span className="animate-lumedot">Fair Royalties</span>
             </h2>
 
             <p 
-              className="text-base font-bold md:text-lg leading-relaxed mb-6"
+              className="text-lg font-bold md:text-xl leading-relaxed mb-4"
               style={{
                 backgroundImage: 'linear-gradient(45deg, #ffffff, #e0e0e0)',
                 WebkitBackgroundClip: 'text',
@@ -32,15 +32,15 @@ export default function FairRoyalties() {
                 textShadow: '0 0 12px rgba(255, 255, 255, 0.3)',
               }}
             >
-              Fair rewards for your honest work.
+              You earn first. Not lumedot.
             </p>
               
-            <p className="text-base md:text-lg leading-relaxed mb-6">
-              Your creativity and hard work come first — not our cut.
+            <p className="text-base md:text-lg leading-relaxed mb-8">
+              • Writers receive up to 100% on early sales, then 80% ongoing.
               <br />
-              Earn what you truly deserve.
+              • No hidden fees, no percentages lost to middle layers.
               <br />
-              Transparent, real-time dashboard. Up to 80% in royalties.
+              • Payments are direct, transparent, and on your schedule.
             </p>
           </div>
         </div>
