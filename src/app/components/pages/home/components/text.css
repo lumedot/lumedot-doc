@@ -1,0 +1,37 @@
+:root{
+  --grad-from:#000000;
+  --grad-via:#1f2937;
+  --grad-to:#4b5563;
+  --shadow:0 0 8px rgba(0,0,0,.15);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --grad-from:#ffffff;
+    --grad-via:#e5e7eb;
+    --grad-to:#9ca3af;
+    --shadow:0 0 12px rgba(255,255,255,.25);
+  }
+}
+
+:root[data-theme="custom-light"]{
+  --grad-from:#000000;
+  --grad-via:#1f2937;
+  --grad-to:#4b5563;
+  --shadow:0 0 8px rgba(0,0,0,.15);
+}
+
+:root[data-theme="custom-dark"]{
+  --grad-from:#ffffff;
+  --grad-via:#e5e7eb;
+  --grad-to:#9ca3af;
+  --shadow:0 0 12px rgba(255,255,255,.25);
+}
+
+.gradient-heading{
+  color:transparent;
+  background-image:linear-gradient(to right,var(--grad-from),var(--grad-via),var(--grad-to));
+  -webkit-background-clip:text;
+          background-clip:text;
+  filter:drop-shadow(var(--shadow));
+}

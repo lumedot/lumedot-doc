@@ -1,3 +1,4 @@
+import './components/text.css';
 import Particle from "@/app/components/styles/animations/particle-themed";
 
 export default function Closing() {
@@ -7,16 +8,7 @@ export default function Closing() {
 
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         <h1
-          className="
-            max-w-3xl mx-auto
-            text-4xl md:text-5xl font-bold leading-tight
-            text-transparent bg-clip-text bg-gradient-to-r
-            from-black via-gray-800 to-gray-600
-            dark:from-white dark:via-gray-200 dark:to-gray-400
-            drop-shadow-[0_0_8px_rgba(0,0,0,0.15)]
-            dark:drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]
-            mb-6
-          "
+          className="gradient-heading max-w-4xl mx-auto text-4xl md:text-5xl font-bold leading-tight mb-6"
         >
           Still early. But already yours.
         </h1>
