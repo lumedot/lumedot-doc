@@ -1,0 +1,19 @@
+:root {
+  --particle-color-light: 0, 150, 255;
+  --particle-color-dark:  255, 255, 255;
+  --particle-base: var(--particle-color-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --particle-base: var(--particle-color-dark);
+  }
+}
+
+:root[data-theme="custom-light"] {
+  --particle-base: var(--particle-color-light);
+}
+
+:root[data-theme="custom-dark"] {
+  --particle-base: var(--particle-color-dark);
+}

@@ -23,18 +23,25 @@
   --button-hover-text: #ffffff;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --button-bg: #ffffff;
     --button-text: #000000;
     --button-hover-bg: #444444;
     --button-hover-text: #ffffff;
   }
-} */
+}
 
-[class~="dark"] {
-  --button-bg: #ffffff;
-  --button-text: #000000;
-  --button-hover-bg: #444444;
+:root[data-theme="custom-light"] {
+  --button-bg: #000000;
+  --button-text: #ffffff;
+  --button-hover-bg: #777777;
   --button-hover-text: #ffffff;
 }
+
+:root[data-theme="custom-dark"] {
+    --button-bg: #ffffff;
+    --button-text: #000000;
+    --button-hover-bg: #444444;
+    --button-hover-text: #ffffff;
+  }

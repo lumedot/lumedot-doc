@@ -1,6 +1,6 @@
 "use client";
-
 import { useEffect, useRef } from "react";
+import "./components/particle.css";
 
 export default function Particle() {
   const canvasRef = useRef(null);
@@ -9,16 +9,14 @@ export default function Particle() {
     const canvas = canvasRef.current;
     const ctx    = canvas.getContext("2d");
 
-    const LIGHT = "0, 175, 255";
-    const DARK  = "255, 255, 255";
-    let baseRGB = LIGHT;
+    const getRGB = () =>
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--particle-base")
+        .trim();
+    let baseRGB = getRGB();
 
     const updateBaseColor = () => {
-      const isDark =
-        document.documentElement.classList.contains("dark") ||
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      baseRGB = isDark ? DARK : LIGHT;
+      baseRGB = getRGB();
     };
 
     updateBaseColor();
@@ -28,16 +26,18 @@ export default function Particle() {
     const observer = new MutationObserver(updateBaseColor);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ["class"],
+      attributeFilter: ["class", "data-theme"],
     });
 
     const COUNT = 25;
     let particles = [];
     let resizing  = false;
+    let bound     = 0;
 
     const resizeCanvas = () => {
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
+      bound = Math.min(canvas.width, canvas.height);
     };
     resizeCanvas();
 
@@ -70,9 +70,8 @@ export default function Particle() {
         ctx.fill();
       }
       update() {
-        if (this.x > canvas.width || this.x < 0)  this.dx *= -1;
-        if (this.y > canvas.height || this.y < 0) this.dy *= -1;
-
+        if (this.x > bound || this.x < 0) this.dx *= -1;
+        if (this.y > bound || this.y < 0) this.dy *= -1;
         this.x += this.dx;
         this.y += this.dy;
 
@@ -96,8 +95,8 @@ export default function Particle() {
     const initParticles = () => {
       for (let i = 0; i < COUNT; i++) {
         const s  = Math.random() * 2;
-        const x  = Math.random() * (canvas.width  - s * 2) + s;
-        const y  = Math.random() * (canvas.height - s * 2) + s;
+        const x  = Math.random() * (bound - s * 2) + s;
+        const y  = Math.random() * (bound - s * 2) + s;
         const dx = Math.random() * 0.4 - 0.2;
         const dy = Math.random() * 0.4 - 0.2;
         particles.push(new Particle(x, y, dx, dy, s));
@@ -106,7 +105,7 @@ export default function Particle() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      updateBaseColor(); // live theme sync
+      updateBaseColor();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((p) => p.update());
     };

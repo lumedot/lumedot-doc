@@ -35,7 +35,7 @@ export default function MultiFormat() {
             </p>
           </div>
 
-          <div className="flex-shrink-0 mb-8 w-full md:w-[400px] lg:w-[500px] -mt-12 relative h-[250px] md:h-[300px] lg:h-[350px]">
+          <div className="flex-shrink-0 mb-12 w-full md:w-[400px] lg:w-[500px] -mt-12 relative h-[250px] md:h-[300px] lg:h-[350px]">
             <Image
               src="/page-media/welcome/5.png"
               alt="Community Illustration"

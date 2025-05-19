@@ -7,7 +7,7 @@ export default function Support() {
     <section className="py-4 px-5 mt-18 mb-16">
       <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
         <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8">
-          <div className="flex-shrink-0 mb-8 w-full md:w-[450px] lg:w-[400px] -mt-12 relative h-[30vh] md:h-[40vh] lg:h-[50vh]">
+          <div className="flex-shrink-0 mb-16 w-full md:w-[450px] lg:w-[400px] -mt-12 relative h-[30vh] md:h-[40vh] lg:h-[50vh]">
               <Image
                 src="/page-media/welcome/4.png"
                 alt="Support Illustration"
