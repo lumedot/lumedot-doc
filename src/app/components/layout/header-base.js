@@ -23,31 +23,31 @@ export default function HeaderBase() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
 
-      const allButtons = Array.from(
+      const allCTAs = Array.from(
         document.querySelectorAll('[data-cta="upload"]')
       );
-
-      const visibleOtherButtons = allButtons.filter(
+      const visibleOtherCTAs = allCTAs.filter(
         (btn) => btn !== localButtonRef.current && isVisible(btn)
       );
-
-      setShowButton(visibleOtherButtons.length === 0);
+      setShowButton(visibleOtherCTAs.length === 0);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     handleScroll();
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const base = "sticky top-2 mx-4 md:mr-6 z-50 transition-all duration-300";
-  const frosted = "bg-white/25 border border-current/25 shadow-sm rounded-2xl";
+  const baseHeader =
+    "sticky top-2 mx-4 md:mr-6 z-50 transition-all duration-300";
+  const frosted =
+    "bg-white/25 border border-current/25 shadow-sm rounded-2xl";
 
   return (
-    <header className={`${base} ${scrolled ? frosted : "border border-transparent bg-transparent"}`}>
+    <header
+      className={`${baseHeader} ${
+        scrolled ? frosted : "border border-transparent bg-transparent"
+      }`}
+    >
       <div className="py-[10px] md:py-[10px] px-[10px] md:px-[17.5px] flex items-center justify-between backdrop-blur-md rounded-2xl">
         <a href="/" className="flex items-center">
           <LumedotSvg
@@ -62,13 +62,11 @@ export default function HeaderBase() {
           />
         </a>
 
-        {/* CTA Button */}
-        <div className="relative flex flex-col items-center sm:flex-row min-h-[25px]">
+        <div className="flex items-center min-w-0">
           <div
-            className={`
-              transition-opacity duration-400 ease-in-out
-              ${showButton ? "opacity-100" : "opacity-0 pointer-events-none"}
-            `}
+            className={`relative transition-opacity duration-400 ease-in-out ${
+              showButton ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
           >
             <a
               ref={localButtonRef}
@@ -76,21 +74,22 @@ export default function HeaderBase() {
               target="_blank"
               rel="noopener noreferrer"
               data-cta="upload"
-              className="relative text-center 
-              z-10 inline-flex items-center 
-              rounded-full border border-current/50 
-              bg-current/5 px-4 py-2 text-xs font-medium 
-              uppercase tracking-wide backdrop-blur-sm 
-              shadow-sm transition-all hover:scale-105 
-              hover:bg-fuchsia-600/50"
+              className="
+                flex-shrink truncate
+                inline-flex items-center
+                rounded-full border border-current/50
+                bg-current/5 px-4 py-2
+                text-xs font-medium uppercase tracking-wide
+                backdrop-blur-sm shadow-sm
+                transition-all hover:scale-105
+                hover:bg-fuchsia-600/50 mx-2
+              "
             >
-              Publish your book →
+              <span className="sm:hidden">Dashboard</span>
+              <span className="hidden sm:inline">&nbsp;Launch&nbsp;Dashboard&nbsp;→</span>
             </a>
           </div>
-        </div>
 
-
-        <div className="flex items-center justify-end">
           <ThemeToggle />
           <a
             href="https://lumedot.com/dot"
@@ -99,14 +98,15 @@ export default function HeaderBase() {
             className="p-2 hover:text-teal-400"
           >
             <svg
-             className="w-5 h-5 ml-[2.5px]"
-             fill="none"
-             stroke="currentColor"
-             strokeWidth={2}
-             strokeLinecap="round"
-             strokeLinejoin="round"
-             viewBox="0 0 24 24">
-             <path d="M18 8L22 12M22 12L18 16M22 12H9M15 4.20404C13.7252 3.43827 12.2452 3 10.6667 3C5.8802 3 2 7.02944 2 12C2 16.9706 5.8802 21 10.6667 21C12.2452 21 13.7252 20.5617 15 19.796" />
+              className="w-5 h-5 ml-[2.5px]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d="M18 8L22 12M22 12L18 16M22 12H9M15 4.20404C13.7252 3.43827 12.2452 3 10.6667 3C5.8802 3 2 7.02944 2 12C2 16.9706 5.8802 21 10.6667 21C12.2452 21 13.7252 20.5617 15 19.796" />
             </svg>
           </a>
         </div>
