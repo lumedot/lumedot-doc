@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default function Freedom() {
   return (
-    <section className="py-4 px-5 mt-12 mb-16">      
-      <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+    <section className="py-4 px-4 mt-4 md:mt-8 lg:mt-12">      
+      <div className="max-w-6xl mx-auto px-4 md:pr-12 lg:pr-16 xl:pr-24">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-4">
           <div className="max-w-prose text-left">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-4">
               1. <span className="animate-lumedot">Ownership</span>
@@ -24,7 +24,7 @@ export default function Freedom() {
               Your work stays yours. Always.
             </p>
               
-            <p className="text-base md:text-lg font-medium leading-relaxed mb-6">
+            <p className="text-base md:text-lg font-medium leading-relaxed">
               • No exclusivity, no fine print.
               <br />
               • We give you tools, not terms.
@@ -33,7 +33,7 @@ export default function Freedom() {
             </p>
           </div>
 
-          <div className="flex-shrink-0 mt-4 w-full md:w-[400px] lg:w-[450px] -mt-12 relative h-[250px] md:h-[300px] lg:h-[350px]">
+          <div className="relative flex-shrink-0 w-full h-[180px] md:w-[400px] md:h-[300px] lg:w-[440px] lg:h-[330px]">
             <Image
               src="/page-media/welcome/1.png"
               alt="Ownership Illustration"

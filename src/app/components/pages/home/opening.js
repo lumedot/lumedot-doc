@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import './components/text.css';
-import Particle from "@/app/components/styles/animations/particle-themed";
+import Particle from "@/app/components/styles/animation/particle";
 
 export default function Opening() {
   const handleDiscoverClick = useCallback((e) => {
@@ -14,7 +14,7 @@ export default function Opening() {
   }, []);
 
   return (
-    <section className="relative isolate flex flex-col items-center justify-center min-h-screen overflow-hidden px-4 text-center -mt-2">
+    <section className="relative isolate flex flex-col items-center justify-center min-h-screen overflow-hidden px-4 text-center -mt-12 sm:-mt-4">
       <Particle />
 
       <a
@@ -31,7 +31,7 @@ export default function Opening() {
 
       {/* Heading */}
       <h1
-        className="gradient-heading relative z-10 mt-6 max-w-4xl
+        className="gradient-heading relative z-10 mt-8 max-w-4xl
                    text-4xl md:text-6xl font-bold leading-tight">
         What if the platform worked for you?
       </h1>
@@ -42,7 +42,7 @@ export default function Opening() {
       </p>
 
       {/* Primary CTAs */}
-      <div className="relative z-10 mt-10 flex flex-col items-center gap-4 sm:flex-row">
+      <div className="relative z-10 mt-12 flex flex-col items-center gap-4 sm:flex-row">
         <a
           href="https://lumedot.com/dot"
           target="_blank"
@@ -58,7 +58,7 @@ export default function Opening() {
         <a
           href="#discover-more"
           onClick={handleDiscoverClick}
-          className="button inline-flex px-8 py-2"
+          className="button inline-flex rounded-full border border-current/50 px-8 py-2"
         >
           Discover more
         </a>

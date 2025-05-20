@@ -1,11 +1,26 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ThemeManager from "./theme-manager";
 
 export default function ThemeToggle() {
   const { manageTheme } = ThemeManager();
   const [current, setCurrent] = useState("system");
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (toggleRef.current && !toggleRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const selectTheme = (key) => {
     manageTheme(key);
@@ -88,7 +103,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center" ref={toggleRef}>
       <div
         className={`
           flex items-center gap-2

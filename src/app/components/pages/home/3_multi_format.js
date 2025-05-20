@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default function MultiFormat() {
   return (
-    <section className="py-4 px-5 mt-12 mb-16">
-      <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+    <section className="pt-24 px-4 md:mt-8">
+      <div className="max-w-6xl mx-auto px-4 md:pr-12 lg:pr-16 xl:pr-24">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-y-4 gap-x-8">
           <div className="max-w-prose text-left">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-4">
               3. <span className="animate-lumedot">Multi-Format</span>
@@ -24,7 +24,7 @@ export default function MultiFormat() {
               Write once. Publish anywhere.
             </p>
               
-            <p className="text-base md:text-lg leading-relaxed mb-6">
+            <p className="text-base md:text-lg leading-relaxed">
               • Beyond the bookshelf-and still yours.
               <br />
               • Text, audio, interactive, visual, or immersive.
@@ -33,7 +33,7 @@ export default function MultiFormat() {
             </p>
           </div>
 
-          <div className="flex-shrink-0 mb-24 w-full md:w-[400px] lg:w-[500px] -mt-12 relative h-[250px] md:h-[300px] lg:h-[350px]">
+          <div className="relative flex-shrink-0 w-full md:w-[400px] lg:w-[500px]">
             <Image
               src="/page-media/welcome/3.png"
               alt="Multi-formatting Illustration"

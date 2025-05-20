@@ -1,0 +1,17 @@
+:root {
+  --particle-base: 25, 175, 235;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --particle-base: 255, 255, 255;
+  }
+}
+
+:root[data-theme="custom-light"] {
+  --particle-base: 25, 175, 235;
+}
+
+:root[data-theme="custom-dark"] {
+  --particle-base: 255, 255, 255;
+}

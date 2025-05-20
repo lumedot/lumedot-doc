@@ -1,23 +1,51 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
+import "./components/particle.css";
 
-import { useEffect, useRef } from "react";
-
-function Particlelite() {
+function Particle() {
   const canvasRef = useRef(null);
+  const [particleColor, setParticleColor] = useState("");
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     let particlesArray = [];
-    const numberOfParticles = 30;
-    const canvasWidth = 900; // Set a fixed width for the canvas
-    const canvasHeight = 1200; // Set a fixed height for the canvas
+    const numberOfParticles = 25;
+    let isResizing = false;
 
-    // Set canvas size to fixed dimensions
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
+    const getParticleColor = () => {
+      const color = getComputedStyle(document.documentElement)
+        .getPropertyValue("--particle-base")
+        .trim();
+      return color;
+    };
 
-    // Particle class
+    const updateParticleColor = () => {
+      setParticleColor(getParticleColor());
+    };
+
+    const observer = new MutationObserver(updateParticleColor);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const resizeCanvas = () => {
+      isResizing = true;
+      fadeOutParticles().then(() => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particlesArray = [];
+        initParticles();
+        isResizing = false;
+      });
+    };
+
+    window.addEventListener("resize", resizeCanvas);
+
     class Particle {
       constructor(x, y, directionX, directionY, size, color) {
         this.x = x;
@@ -34,12 +62,11 @@ function Particlelite() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
         ctx.fill();
       }
 
       update() {
-        // Check if particle is within the canvas
         if (this.x > canvas.width || this.x < 0) {
           this.directionX = -this.directionX;
         }
@@ -50,7 +77,10 @@ function Particlelite() {
         this.x += this.directionX;
         this.y += this.directionY;
 
-        if (!this.dimming) {
+        if (isResizing) {
+          this.opacity -= 0.05;
+          if (this.opacity < 0) this.opacity = 0;
+        } else if (!this.dimming) {
           this.opacity += 0.05;
           if (this.opacity > 1) this.opacity = 1;
         }
@@ -60,19 +90,17 @@ function Particlelite() {
           if (this.opacity <= 0.2) {
             this.dimming = false;
           }
-        } else {
+        } else if (!isResizing) {
           this.opacity += this.twinkleSpeed;
           if (this.opacity >= 1) {
             this.dimming = true;
           }
         }
 
-        // Draw particle
         this.draw();
       }
     }
 
-    // Initialize particles
     const initParticles = () => {
       particlesArray.length = 0;
       for (let i = 0; i < numberOfParticles; i++) {
@@ -81,30 +109,48 @@ function Particlelite() {
         const y = Math.random() * (canvas.height - size * 2) + size;
         const directionX = (Math.random() * 0.4) - 0.2;
         const directionY = (Math.random() * 0.4) - 0.2;
-        const color = "#FFFFFF";
+        const color = particleColor || getParticleColor();
 
         particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
       }
     };
 
-    // Animate particles
     const animateParticles = () => {
       requestAnimationFrame(animateParticles);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       particlesArray.forEach((particle) => particle.update());
     };
 
-    // Initialize and start animation
+    const fadeOutParticles = () => {
+      return new Promise((resolve) => {
+        const fadeOutInterval = setInterval(() => {
+          let allFadedOut = true;
+          particlesArray.forEach((particle) => {
+            if (particle.opacity > 0) {
+              particle.opacity -= 0.05;
+              allFadedOut = false;
+            }
+          });
+          if (allFadedOut) {
+            clearInterval(fadeOutInterval);
+            resolve();
+          }
+        }, 1000 / 60);
+      });
+    };
+
     initParticles();
     animateParticles();
 
-    // Cleanup on unmount
     return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      observer.disconnect();
     };
-  }, []);
+  }, [particleColor]);
 
-  return <canvas ref={canvasRef} className="absolute top-0 left-0" />;
+  return (
+    <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
+  );
 }
 
-export default Particlelite;
+export default Particle;

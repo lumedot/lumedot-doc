@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export default function Support() {
   return (
-    <section className="py-4 px-5 mt-18 mb-16">
-      <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
-        <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8">
-          <div className="flex-shrink-0 mb-16 w-full md:w-[450px] lg:w-[400px] -mt-12 relative h-[30vh] md:h-[40vh] lg:h-[50vh]">
+    <section className="pt-24 px-4 md:mt-8">
+      <div className="max-w-6xl mx-auto px-4 md:pr-12 lg:pr-16 xl:pr-24">
+        <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-y-4 gap-x-8">
+          <div className="relative flex-shrink-0 w-full md:w-[350px] lg:w-[400px]">
               <Image
                 src="/page-media/welcome/4.png"
                 alt="Support Illustration"
@@ -35,7 +35,7 @@ export default function Support() {
               Help you finish strong.
             </p>
               
-            <p className="text-base md:text-lg leading-relaxed mb-6">
+            <p className="text-base md:text-lg leading-relaxed">
               • From manuscript to a fully published, pro-quality book-free EPUB conversion, audio post, and format design.
               <br></br>
               • No fees. No agencies. Just help from people who've done it before.

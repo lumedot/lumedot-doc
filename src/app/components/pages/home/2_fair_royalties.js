@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export default function FairRoyalties() {
   return (
-    <section className="py-4 px-5 mt-16 mb-16">
-      <div className="max-w-6xl mx-auto px-6 md:pr-12 lg:pr-16 xl:pr-24">
-        <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8">
-          <div className="flex-shrink-0 mb-24 w-full md:w-[350px] lg:w-[400px] -mt-12 relative h-[30vh] md:h-[40vh] lg:h-[50vh]">
+    <section className="pt-24 px-4 mt-28 sm:mt-36 md:mt-12 lg:mt-8">
+      <div className="max-w-6xl mx-auto px-4 md:pr-12 lg:pr-16 xl:pr-24">
+        <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-y-4 gap-x-8">
+          <div className="relative flex-shrink-0 w-full md:w-[350px] lg:w-[400px]">
             <Image
               src="/page-media/welcome/2.png"
               alt="Fair Royalties Illustration"
@@ -35,7 +35,7 @@ export default function FairRoyalties() {
               You earn first. Not lumedot.
             </p>
               
-            <p className="text-base md:text-lg leading-relaxed mb-8">
+            <p className="text-base md:text-lg leading-relaxed">
               • Writers receive up to 100% on early sales, then 80% ongoing.
               <br />
               • No hidden fees, no percentages lost to middle layers.
