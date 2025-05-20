@@ -30,10 +30,6 @@ export default async function RootLayout({ children }) {
       dataTheme = "custom-dark";
       metaThemeColor = "#000000";
       break;
-    case "custom-starlight":
-      dataTheme = "custom-starlight";
-      metaThemeColor = "#1d2b4f";
-      break;
   }
 
   const scriptForSystem = `
